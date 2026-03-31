@@ -13,23 +13,22 @@ metadata:
   openclaw:
     emoji: "📰"
     requires:
-      env:
-        - SCRAPECREATORS_API_KEY
-      optionalEnv:
-        - OPENAI_API_KEY
-        - XAI_API_KEY
-        - OPENROUTER_API_KEY
-        - PARALLEL_API_KEY
-        - BRAVE_API_KEY
-        - APIFY_API_TOKEN
-        - AUTH_TOKEN
-        - CT0
-        - BSKY_HANDLE
-        - BSKY_APP_PASSWORD
-        - TRUTHSOCIAL_TOKEN
       bins:
         - node
         - python3
+    optionalEnv:
+      - SCRAPECREATORS_API_KEY
+      - OPENAI_API_KEY
+      - XAI_API_KEY
+      - OPENROUTER_API_KEY
+      - PARALLEL_API_KEY
+      - BRAVE_API_KEY
+      - APIFY_API_TOKEN
+      - AUTH_TOKEN
+      - CT0
+      - BSKY_HANDLE
+      - BSKY_APP_PASSWORD
+      - TRUTHSOCIAL_TOKEN
     primaryEnv: SCRAPECREATORS_API_KEY
     files:
       - "scripts/*"
@@ -342,6 +341,8 @@ Then do WebSearch for: `{TOPIC_A} vs {TOPIC_B} comparison 2026` and `{TOPIC_A} v
 # Find skill root — works in repo checkout, Claude Code, or Codex install
 for dir in \
   "." \
+  "$HOME/.openclaw/workspace/skills/last30days" \
+  "$HOME/.openclaw/skills/last30days" \
   "${CLAUDE_PLUGIN_ROOT:-}" \
   "${GEMINI_EXTENSION_DIR:-}" \
   "$HOME/.claude/plugins/marketplaces/last30days-skill" \
